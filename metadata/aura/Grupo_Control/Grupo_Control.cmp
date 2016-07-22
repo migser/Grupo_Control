@@ -1,0 +1,20 @@
+<aura:component implements='flexipage:availableForRecordHome,force:hasRecordId' controller="Grupo_Control" access="global">
+    <aura:attribute name="recordId" type="String" />
+	<aura:attribute name="campana" type="Campaign" />
+    <aura:attribute name="grupo" type="Boolean" default="false"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.inicio}" />
+	<div class="slds-form--stacked">
+        <ui:inputNumber label="Grupo de Control (en %)" value="{!v.campana.Grupo_Control__c}" format=".00"/>
+        <aura:if isTrue="{!v.grupo}">
+            <div class="slds-form-element">
+<!--                <label class="slds-form-element__label" >Grupo de Control</label> -->
+                <div class="slds-form-element__control">
+                    <ui:inputNumber label="Grupo de Control" aura:id="grupo_size" disabled="true"/>
+                </div>
+            </div>
+        </aura:if>
+    	<ui:button label="Generar Grupo de Control" press="{!c.grupo}"/>
+   	</div>
+
+</aura:component>
