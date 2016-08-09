@@ -3,18 +3,31 @@
 	<aura:attribute name="campana" type="Campaign" />
     <aura:attribute name="grupo" type="Boolean" default="false"/>
 
+    <!-- Deseign Attributes -->
+
+    <aura:attribute name="language" type="String" default="User's Default" />
+    <aura:attribute name="cg_check" type="String" default="grupo_de_control__c" />
+    <aura:attribute name="cg_pct" type="String" default="Grupo_Control__c"/>
+
+    <!-- Labels -->
+
+    <aura:attribute name="input_size_lbl" type="String" default="X"/>
+    <aura:attribute name="input_pct_lbl" type="String" default="Y"/>
+    <aura:attribute name="button_lbl" type="String" default="Z"/>
+
+
     <aura:handler name="init" value="{!this}" action="{!c.inicio}" />
 	<div class="slds-form--stacked">
-        <ui:inputNumber label="Grupo de Control (en %)" value="{!v.campana.Grupo_Control__c}" format=".00"/>
+        <ui:inputNumber label="{!v.input_pct_lbl}" value="{!v.campana.Grupo_Control__c}" format=".00"/>
         <aura:if isTrue="{!v.grupo}">
             <div class="slds-form-element">
 <!--                <label class="slds-form-element__label" >Grupo de Control</label> -->
                 <div class="slds-form-element__control">
-                    <ui:inputNumber label="Grupo de Control" aura:id="grupo_size" disabled="true"/>
+                    <ui:inputNumber label="{!v.input_size_lbl}" aura:id="grupo_size" disabled="true"/>
                 </div>
             </div>
         </aura:if>
-    	<ui:button label="Generar Grupo de Control" press="{!c.grupo}"/>
+    	<ui:button label="{!v.button_lbl}" press="{!c.grupo}"/>
    	</div>
 
 </aura:component>

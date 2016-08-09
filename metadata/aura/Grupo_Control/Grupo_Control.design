@@ -1,3 +1,6 @@
 <design:component>
-	
+	<design:attribute name="language" label="Language" description="Select the language" 
+                      datasource="User's Default,Spanish,English" default="User's Default"/>
+    <design:attribute name="cg_check" label="Control Group Check Field" description="Api name of check field for control group in Campaign Member object" default="grupo_de_control__c" />
+    <design:attribute name="cg_pct" label="Control Group Size Field" description="Api name of the field to store control group size (in pct)" default="Grupo_Control__c"/>
 </design:component>
